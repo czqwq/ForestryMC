@@ -6,12 +6,19 @@
  * Various Contributors including, but not limited to: SirSengir (original work), CovertJaguar, Player, Binnie,
  * MysteriousAges
  ******************************************************************************/
-package forestry.apiculture.genetics;
+package forestry.api.apiculture;
 
-/**
- * Deprecated: use {@link forestry.api.apiculture.IBeeDefinition} instead.
- * This alias is kept for backward compatibility with mods that reference the internal package.
- */
-@Deprecated
-public interface IBeeDefinition extends forestry.api.apiculture.IBeeDefinition {
+import net.minecraft.item.ItemStack;
+
+import forestry.core.genetics.IGeneticDefinition;
+
+public interface IBeeDefinition extends IGeneticDefinition {
+
+    @Override
+    IBeeGenome getGenome();
+
+    @Override
+    IBee getIndividual();
+
+    ItemStack getMemberStack(EnumBeeType beeType);
 }
